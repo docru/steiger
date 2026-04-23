@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1f3a5f">
+  <title>Steiger PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon-heart.svg">
+  <link rel="apple-touch-icon" href="icon-heart.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="tabs" aria-label="Переключение экранов">
+      <button id="tab-love" class="tab tab-active" type="button">Любовь</button>
+      <button id="tab-forgive" class="tab" type="button">Простить</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="screen-love" class="screen screen-active" aria-labelledby="tab-love">
+      <h2>Любовь это...</h2>
+      <p class="hint">Перетащи или выбери карточку тапом и нажми на поле</p>
+      <div id="love-dropzone" class="dropzone" aria-label="Поле любви"></div>
+    </section>
+
+    <section id="screen-forgive" class="screen" aria-labelledby="tab-forgive">
+      <h2>Простить / не простить</h2>
+      <p class="hint">Перетащи или выбери карточку тапом и нажми на колонку</p>
+      <div class="split-layout">
+        <div class="column-wrap">
+          <h3>Простить</h3>
+          <div id="forgive-zone" class="dropzone"></div>
+        </div>
+        <div class="column-wrap">
+          <h3>Не простить</h3>
+          <div id="not-forgive-zone" class="dropzone"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="pool-wrap">
+    <h3 id="pool-title">Варианты</h3>
+    <div id="options-pool" class="options-pool" aria-labelledby="pool-title"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

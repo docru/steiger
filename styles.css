@@ -1,0 +1,150 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --text: #1e2a39;
+  --muted: #617086;
+  --primary: #1f3a5f;
+  --primary-soft: #dce7f5;
+  --border: #c9d4e3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+main {
+  padding: 16px;
+  flex: 1;
+}
+
+.screen {
+  display: none;
+}
+
+.screen-active {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.hint {
+  color: var(--muted);
+  margin-top: -4px;
+}
+
+.dropzone {
+  min-height: 170px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.column-wrap h3 {
+  margin: 8px 0;
+}
+
+.pool-wrap {
+  position: sticky;
+  bottom: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 12px 16px 16px;
+}
+
+.pool-wrap h3 {
+  margin: 0 0 10px;
+}
+
+.options-pool {
+  height: 70px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  overflow-y: auto;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--primary-soft);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-weight: 700;
+  cursor: grab;
+  user-select: none;
+}
+
+.chip:active {
+  cursor: grabbing;
+}
+
+.chip-selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(31, 58, 95, 0.2);
+}
+
+.dropzone.drag-over,
+.options-pool.drag-over {
+  border-color: var(--primary);
+  background: #eef4fd;
+}
+

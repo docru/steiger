@@ -1,0 +1,17 @@
+{
+  "name": "Steiger PWA",
+  "short_name": "Steiger",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1f3a5f",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "./icon-heart.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
