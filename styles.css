@@ -18,9 +18,10 @@ body {
   font-family: Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .header {
@@ -56,6 +57,7 @@ body {
 main {
   padding: 16px;
   flex: 1;
+  min-height: 0;
 }
 
 .screen {
@@ -63,7 +65,10 @@ main {
 }
 
 .screen-active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 
 h2 {
@@ -76,7 +81,7 @@ h2 {
 }
 
 .dropzone {
-  min-height: 170px;
+  min-height: 0;
   border: 2px dashed var(--border);
   border-radius: 12px;
   background: var(--surface);
@@ -91,10 +96,26 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+#love-dropzone {
+  flex: 1;
+}
+
+.column-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .column-wrap h3 {
   margin: 8px 0;
+}
+
+.column-wrap .dropzone {
+  flex: 1;
 }
 
 .pool-wrap {
@@ -103,6 +124,10 @@ h2 {
   background: var(--surface);
   border-top: 1px solid var(--border);
   padding: 12px 16px 16px;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .pool-wrap h3 {
@@ -110,13 +135,14 @@ h2 {
 }
 
 .options-pool {
-  height: 70px;
+  flex: 1;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
   overflow-y: auto;
+  min-height: 0;
 }
 
 .chip {
@@ -135,6 +161,10 @@ h2 {
 
 .chip:active {
   cursor: grabbing;
+}
+
+.chip-dragging {
+  opacity: 0.55;
 }
 
 .chip-selected {

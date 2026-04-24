@@ -33,6 +33,7 @@ const notForgiveZone = document.getElementById("not-forgive-zone");
 let draggedId = "";
 let selectedChipId = "";
 let currentScreen = "love";
+let touchDraggedId = "";
 
 function createChip(text, index) {
   const chip = document.createElement("button");
@@ -44,6 +45,13 @@ function createChip(text, index) {
   chip.addEventListener("dragstart", () => {
     draggedId = chip.id;
   });
+  chip.addEventListener("dragend", () => {
+    chip.classList.remove("chip-dragging");
+  });
+  chip.addEventListener("touchstart", () => {
+    touchDraggedId = chip.id;
+    chip.classList.add("chip-dragging");
+  }, { passive: true });
   chip.addEventListener("click", () => {
     toggleChipSelection(chip.id);
   });
@@ -150,6 +158,68 @@ function setupPoolDropzone() {
   });
 }
 
+function getTouchTargetZone(touch) {
+  const element = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (!element) {
+    return null;
+  }
+  return element.closest(".dropzone, .options-pool");
+}
+
+function setupTouchDrag() {
+  document.addEventListener("touchmove", (event) => {
+    if (!touchDraggedId) {
+      return;
+    }
+    const touch = event.changedTouches[0];
+    if (!touch) {
+      return;
+    }
+    event.preventDefault();
+    document.querySelectorAll(".drag-over").forEach((el) => {
+      el.classList.remove("drag-over");
+    });
+    const zone = getTouchTargetZone(touch);
+    if (zone) {
+      zone.classList.add("drag-over");
+    }
+  }, { passive: false });
+
+  document.addEventListener("touchend", (event) => {
+    if (!touchDraggedId) {
+      return;
+    }
+    const touch = event.changedTouches[0];
+    const chip = document.getElementById(touchDraggedId);
+    const zone = touch ? getTouchTargetZone(touch) : null;
+
+    document.querySelectorAll(".drag-over").forEach((el) => {
+      el.classList.remove("drag-over");
+    });
+
+    if (chip && zone) {
+      zone.appendChild(chip);
+      clearChipSelection();
+    }
+
+    if (chip) {
+      chip.classList.remove("chip-dragging");
+    }
+    touchDraggedId = "";
+  });
+
+  document.addEventListener("touchcancel", () => {
+    const chip = document.getElementById(touchDraggedId);
+    if (chip) {
+      chip.classList.remove("chip-dragging");
+    }
+    document.querySelectorAll(".drag-over").forEach((el) => {
+      el.classList.remove("drag-over");
+    });
+    touchDraggedId = "";
+  });
+}
+
 tabLove.addEventListener("click", () => activateScreen("love"));
 tabForgive.addEventListener("click", () => activateScreen("forgive"));
 
@@ -157,6 +227,7 @@ setupDropzone(loveDropzone);
 setupDropzone(forgiveZone);
 setupDropzone(notForgiveZone);
 setupPoolDropzone();
+setupTouchDrag();
 
 activateScreen("love");
 
