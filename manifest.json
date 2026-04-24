@@ -1,6 +1,6 @@
 {
-  "name": "Steiger PWA",
-  "short_name": "Steiger",
+  "name": "Церковь на улице",
+  "short_name": "Церковь",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f7fb",
