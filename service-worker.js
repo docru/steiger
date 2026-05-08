@@ -1,11 +1,12 @@
-const CACHE_NAME = "church-on-street-pwa-v4";
+const APP_VERSION = "20260508-1";
+const CACHE_NAME = `church-on-street-pwa-v${APP_VERSION}`;
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css",
-  "./app.js",
-  "./manifest.json",
-  "./icon-heart.svg"
+  `./styles.css?v=${APP_VERSION}`,
+  `./app.js?v=${APP_VERSION}`,
+  `./manifest.json?v=${APP_VERSION}`,
+  `./icon-heart.svg?v=${APP_VERSION}`
 ];
 
 self.addEventListener("message", (event) => {
