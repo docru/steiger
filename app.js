@@ -60,8 +60,13 @@ function createChip(text, index) {
 
 function renderPool(options) {
   optionsPool.innerHTML = "";
+  const isLove = currentScreen === "love";
   options.forEach((value, i) => {
-    optionsPool.appendChild(createChip(value, i));
+    const chip = createChip(value, i);
+    if (isLove) {
+      chip.classList.add(`chip-love-${i}`);
+    }
+    optionsPool.appendChild(chip);
   });
 }
 

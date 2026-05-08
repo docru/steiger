@@ -114,8 +114,36 @@ h2 {
   margin: 8px 0;
 }
 
+.column-wrap--forgive h3 {
+  color: #1b5e20;
+}
+
+.column-wrap--forgive .dropzone {
+  border-color: #81c784;
+  background: #e8f5e9;
+}
+
+.column-wrap--not-forgive h3 {
+  color: #b71c1c;
+}
+
+.column-wrap--not-forgive .dropzone {
+  border-color: #e57373;
+  background: #ffebee;
+}
+
 .column-wrap .dropzone {
   flex: 1;
+}
+
+.column-wrap--forgive .dropzone.drag-over {
+  border-color: #2e7d32;
+  background: #c8e6c9;
+}
+
+.column-wrap--not-forgive .dropzone.drag-over {
+  border-color: #c62828;
+  background: #ffcdd2;
 }
 
 .pool-wrap {
@@ -170,6 +198,62 @@ h2 {
 .chip-selected {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(31, 58, 95, 0.2);
+}
+
+#love-dropzone .chip-love-0,
+.options-pool .chip-love-0 {
+  background: #fce4ec;
+  border-color: #f48fb1;
+  color: #880e4f;
+}
+
+#love-dropzone .chip-love-1,
+.options-pool .chip-love-1 {
+  background: #fff3e0;
+  border-color: #ffb74d;
+  color: #e65100;
+}
+
+#love-dropzone .chip-love-2,
+.options-pool .chip-love-2 {
+  background: #fffde7;
+  border-color: #fff176;
+  color: #f57f17;
+}
+
+#love-dropzone .chip-love-3,
+.options-pool .chip-love-3 {
+  background: #e8f5e9;
+  border-color: #81c784;
+  color: #1b5e20;
+}
+
+#love-dropzone .chip-love-4,
+.options-pool .chip-love-4 {
+  background: #e3f2fd;
+  border-color: #64b5f6;
+  color: #0d47a1;
+}
+
+#love-dropzone .chip-love-5,
+.options-pool .chip-love-5 {
+  background: #ede7f6;
+  border-color: #9575cd;
+  color: #4527a0;
+}
+
+#love-dropzone .chip-love-6,
+.options-pool .chip-love-6 {
+  background: #f3e5f5;
+  border-color: #ba68c8;
+  color: #4a148c;
+}
+
+#love-dropzone .chip-love-7,
+.options-pool .chip-love-7 {
+  background: #e0f2f1;
+  border-color: #4db6ac;
+  color: #004d40;
 }
 
 .dropzone.drag-over,
