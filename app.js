@@ -22,6 +22,7 @@ const FORGIVE_OPTIONS = [
 
 const tabLove = document.getElementById("tab-love");
 const tabForgive = document.getElementById("tab-forgive");
+const refreshAppButton = document.getElementById("refresh-app");
 const screenLove = document.getElementById("screen-love");
 const screenForgive = document.getElementById("screen-forgive");
 const optionsPool = document.getElementById("options-pool");
@@ -227,6 +228,9 @@ function setupTouchDrag() {
 
 tabLove.addEventListener("click", () => activateScreen("love"));
 tabForgive.addEventListener("click", () => activateScreen("forgive"));
+refreshAppButton.addEventListener("click", () => {
+  window.location.reload();
+});
 
 setupDropzone(loveDropzone);
 setupDropzone(forgiveZone);
